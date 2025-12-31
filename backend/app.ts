@@ -1,0 +1,43 @@
+// import packages
+import dotenv from 'dotenv';
+dotenv.config();
+import express from 'express';
+import cors from 'cors';
+import http from 'http';
+import { Server } from 'socket.io';
+import { createServer } from 'http';
+import path from 'path';
+
+
+
+//import files 
+import connectDB from './db/db.ts';
+
+
+
+
+// init vars 
+const app = express();
+const port = process.env.PORT || 5000;
+connectDB()
+
+
+// init socket io 
+const httpServer = http.createServer(app);
+const io = new Server(httpServer, {
+    cors: {
+        origin: '*'  
+    }
+});
+
+// middlewares 
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
+
+
+// app is listening
+httpServer.listen(port , () => {
+    console.log(`Server is running on port ${port}`);
+});
+
