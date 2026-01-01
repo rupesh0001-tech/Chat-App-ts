@@ -1,3 +1,4 @@
+
 // import packages
 import dotenv from 'dotenv';
 dotenv.config();
@@ -6,7 +7,8 @@ import cors from 'cors';
 import http from 'http';
 import { Server } from 'socket.io';
 import { createServer } from 'http';
-import path from 'path';
+import  cookieParser  from 'cookie-parser';
+
 
 
 
@@ -39,6 +41,7 @@ const io = new Server(httpServer, {
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
+app.use(cookieParser());
 
 // routes 
 app.use('/api/users', userRoutes);

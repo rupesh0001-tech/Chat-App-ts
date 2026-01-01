@@ -16,7 +16,7 @@ export const isAuthenticated = (
 
     // validate token
     if (!token) {
-      return res.status(401).json({ message: "Unauthorized" });
+      return res.status(401).json({ message: "Unauthorized, Token not found" });
     }
 
     // verify token
