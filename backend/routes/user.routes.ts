@@ -1,4 +1,5 @@
 import express from "express";
+
 import { registerUser, loginUser } from "../controllers/user.auth.controllers.ts";
 import { getProfile } from "../controllers/user.auth.controllers.ts";
 import { logoutUser } from "../controllers/user.auth.controllers.ts";

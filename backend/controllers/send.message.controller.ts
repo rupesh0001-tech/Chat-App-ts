@@ -1,9 +1,6 @@
-
-
 import type { Request, Response } from "express";
-import type { userI } from "../interfaces/user.interface";
-import Message from "../models/message.model";
-import User from "../models/user.model";
+import Message from "../models/message.model.ts";
+import User from "../models/user.model.ts";
 
 export const sendMessage = async (req: Request, res: Response) => {
   try {
