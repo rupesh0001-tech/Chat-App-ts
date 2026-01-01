@@ -13,6 +13,8 @@ import path from 'path';
 //import files 
 import connectDB from './db/db.ts';
 
+import userRoutes from './routes/user.routes.ts';
+
 
 
 
@@ -34,6 +36,9 @@ const io = new Server(httpServer, {
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
+
+// routes 
+app.use('/api/users', userRoutes);
 
 
 // app is listening

@@ -6,6 +6,8 @@ import { isAuthenticated } from "../middlewares/user.auth.middlewares";
 
 const router = express.Router();
 
+
+// routes => /api/users/_______
 router.post("/register", registerUser);
 router.post("/login", loginUser);
 router.get("/profile", isAuthenticated, getProfile);
