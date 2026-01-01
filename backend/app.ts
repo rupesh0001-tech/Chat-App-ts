@@ -15,6 +15,7 @@ import connectDB from './db/db.ts';
 
 import userRoutes from './routes/user.routes.ts';
 import getUserRoutes from './routes/get.users.routers.ts';
+import messageRoutes from './routes/message.routers.ts';
 
 
 
@@ -41,6 +42,7 @@ app.use(express.urlencoded({extended: true}));
 // routes 
 app.use('/api/users', userRoutes);
 app.use('/api/users', getUserRoutes);
+app.use('/api/messages', messageRoutes)
 
 
 // app is listening
