@@ -99,7 +99,6 @@ export const loginUser = async (req: Request, res: Response) => {
   }
 };
 
-
 export const logoutUser = async (req: Request, res: Response) => {
   try {
     if(!req.cookies?.token) return res.status(401).json({ message: "Unauthorized" });
