@@ -1,20 +1,19 @@
 import mongoose from 'mongoose';
+import type { messageI } from '../interfaces/message.interface.ts';
 
-interface IMessage extends mongoose.Document {
-    sender: string;
-    reciver: string;
-    message : string;
-    createdAt: Date;
-}
 
-const messageSchema = new mongoose.Schema<IMessage>({
+
+const messageSchema = new mongoose.Schema<messageI>({
     sender: {
-        type: String,
+        type: mongoose.Schema.Types.ObjectId,
+        ref : "User",
         required: true
     },
     reciver: {
-        type: String,
+        type: mongoose.Schema.Types.ObjectId,
+        ref : "User",
         required: true
+        
     },
     message: {
         type: String,
@@ -26,5 +25,5 @@ const messageSchema = new mongoose.Schema<IMessage>({
     }
 });
 
-const Message = mongoose.model<IMessage>("Message", messageSchema);
+const Message = mongoose.model<messageI>("Message", messageSchema);
 export default Message;

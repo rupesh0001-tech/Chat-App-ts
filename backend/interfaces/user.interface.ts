@@ -1,18 +1,19 @@
 export interface userI {
-    _id: string,
-    name: string,
-    email: string,
-    password: string,
-    isOnline: boolean
+  name: string;
+  email: string;
+  password: string;
+  isOnline: boolean;
+  createdAt: Date;
+  updatedAt: Date;
 }
 
 export interface registerUserI {
-    name: string | null,
-    email: string | null,
-    password: string | null,
+  name: string | null;
+  email: string | null;
+  password: string | null;
 }
 
 export interface loginUserI {
-    email: string | null,
-    password: string | null,
+  email: string | null;
+  password: string | null;
 }
