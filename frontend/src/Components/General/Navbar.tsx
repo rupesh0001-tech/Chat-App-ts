@@ -1,4 +1,8 @@
+import { useNavigate } from "react-router-dom";
+import Button from "./Button";
+
 const Navbar = () => {
+    const navigate = useNavigate();
   return (
     <nav className="h-17.5 w-full px-6 md:px-16 lg:px-24 flex items-center justify-between bg-white border-b border-gray-200">
       
@@ -9,19 +13,8 @@ const Navbar = () => {
 
       {/* Auth Buttons */}
       <div className="flex items-center gap-3">
-        <button
-          className="px-5 py-2 text-sm font-medium text-gray-700 border border-gray-300 rounded-full 
-                     hover:bg-gray-100 transition-all duration-200 cursor-pointer  "
-        >
-          Login
-        </button>
-
-        <button
-          className="px-6 py-2 text-sm font-medium text-white bg-indigo-600 rounded-full
-                     hover:bg-indigo-700 active:scale-95 transition-all duration-200 shadow-sm cursor-pointer "
-        >
-          Register
-        </button>
+        <Button text="Login" onClick={() => {navigate("/login") }} />  
+        <Button text="Sign Up" onClick={() => { navigate("/register") }} />
       </div>
 
     </nav>
