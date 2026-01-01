@@ -1,9 +1,74 @@
+import { useState } from "react";
 
+const Register = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
 
-const Resgister = () => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log("Register Data:", formData);
+
+    // TODO: API call here
+  };
+
   return (
-    <div>Resgister</div>
-  )
-}
+    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+      <form
+        onSubmit={handleSubmit}
+        className="bg-white p-6 rounded-lg shadow-md w-80 flex flex-col gap-4"
+      >
+        <h2 className="text-xl font-semibold text-center">Register</h2>
 
-export default Resgister
+        <input
+          type="text"
+          name="name"
+          placeholder="Full Name"
+          value={formData.name}
+          onChange={handleChange}
+          className="border px-3 py-2 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 "
+          required
+        />
+
+        <input
+          type="email"
+          name="email"
+          placeholder="Email Address"
+          value={formData.email}
+          onChange={handleChange}
+          className="border px-3 py-2 rounded-2xl focus:outline-none focus:ring-2 focu rounded-2xl-500 "
+          required
+        />
+
+        <input 
+          type="password"
+          name="password"
+          placeholder="Password"
+          value={formData.password}
+          onChange={handleChange}
+          className="border px-3 py-2 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 "
+          required
+        />
+
+        <button
+          type="submit"
+          className="bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition"
+        >
+          Create Account
+        </button>
+      </form>
+    </div>
+  );
+};
+
+export default Register;
