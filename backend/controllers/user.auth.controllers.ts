@@ -1,3 +1,4 @@
+
 import User from "../models/user.model.ts";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
@@ -91,9 +92,32 @@ export const loginUser = async (req: Request, res: Response) => {
       message: "Login successful",
       user,
     });
-    
+
   } catch (error) {
     console.log(error);
     res.status(500).json({ message: "Something went wrong" });
   }
 };
+
+
+export const logoutUser = async (req: Request, res: Response) => {
+  try {
+    if(!req.cookies?.token) return res.status(401).json({ message: "Unauthorized" });
+    // clear cookie
+    res.clearCookie("token");
+    res.status(200).json({ message: "Logout successful" });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: "Something went wrong" });
+  }
+};
+
+export const getProfile = async (req: Request, res: Response) => {
+  try {
+    const user = await User.findById(req.userId);
+    res.status(200).json({ user });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: "Something went wrong" });
+  }
+}
