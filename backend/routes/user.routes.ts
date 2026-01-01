@@ -1,8 +1,8 @@
 import express from "express";
-import { registerUser, loginUser } from "../controllers/user.auth.controllers";
-import { getProfile } from "../controllers/user.auth.controllers";
-import { logoutUser } from "../controllers/user.auth.controllers";
-import { isAuthenticated } from "../middlewares/user.auth.middlewares";
+import { registerUser, loginUser } from "../controllers/user.auth.controllers.ts";
+import { getProfile } from "../controllers/user.auth.controllers.ts";
+import { logoutUser } from "../controllers/user.auth.controllers.ts";
+import { isAuthenticated } from "../middlewares/user.auth.middlewares.ts";
 
 const router = express.Router();
 
