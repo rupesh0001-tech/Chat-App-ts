@@ -11,3 +11,8 @@ export interface registerUserI {
     email: string | null,
     password: string | null,
 }
+
+export interface loginUserI {
+    email: string | null,
+    password: string | null,
+}
