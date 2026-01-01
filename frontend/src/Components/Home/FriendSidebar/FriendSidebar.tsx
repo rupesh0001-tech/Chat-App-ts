@@ -12,10 +12,16 @@ const FriendSidebar = () => {
     { id: 8, name: "Aditi.." },
     { id: 9, name: "Deepak" },
     { id: 10, name: "Aditya" },
+    { id: 11, name: "Aayush" },
+    { id: 12, name: "Aayush" },
+    { id: 13, name: "Aayush" },
+    { id: 14, name: "Aayush" },
+    { id: 15, name: "Aayush" },
+    { id: 16, name: "Aayush" },
   ];
 
   return (
-    <aside className="w-72 h-screen bg-white border-r border-gray-200 flex flex-col">
+    <aside className=" w-80  h-screen  bg-white border-r border-gray-200 flex flex-col overflow-scroll pb-10">
       <h1 className=" text-md text-center font-semibold mt-3"> Friend List </h1>
       <hr className="my-4" />
       <div className="p-2 flex-1">
