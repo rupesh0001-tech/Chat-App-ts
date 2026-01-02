@@ -20,12 +20,13 @@ const Login = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Login Data:", formData);
 
-    const data = loginUser({ user: formData });
-    setUser(data);
+    const data = await loginUser({ user: formData });
+    console.log(data);
+    setUser(data.user);
     setIsLogin(true);
     navigate("/");
   };

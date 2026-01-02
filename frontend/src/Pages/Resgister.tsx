@@ -26,7 +26,7 @@ const Register = () => {
     console.log("Register Data:", formData);
     
     const data = await  registerUser({ user: formData });
-    setUser(data);
+    setUser(data.user);
     setIsLogin(true);
     navigate("/");
   };

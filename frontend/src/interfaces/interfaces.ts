@@ -5,7 +5,9 @@ export interface UserI {
     isOnline: boolean | null,
     createdAt: Date | null,
     updatedAt: Date | null,
+    __v: number | null
 }
+
 
 export interface RegisterUserI {
     name: string | null,
@@ -25,6 +27,7 @@ export interface FriendI {
     isOnline: boolean | null,
     createdAt: Date | null,
     updatedAt: Date | null,
+    __v: number | null
 }
 
 export interface MessageI {
@@ -34,5 +37,7 @@ export interface MessageI {
     message: string,
     createdAt: Date,
     updatedAt: Date,
+    __v: number
 } 
+
 

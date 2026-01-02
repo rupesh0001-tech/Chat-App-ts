@@ -6,9 +6,9 @@ import type { FriendI, UserI } from "../interfaces/interfaces";
 interface MyContextType {
   isLogin: boolean;
   setIsLogin: React.Dispatch<React.SetStateAction<boolean>>;
-  user: any;
+  user: UserI | null;
   setUser: React.Dispatch<React.SetStateAction<any>>;
-  friends: any;
+  friends: FriendI | null;
   setFriends: React.Dispatch<React.SetStateAction<any>>;
 }
 
