@@ -21,13 +21,13 @@ export interface LoginUserI {
 }
 
 export interface FriendI {
-    _id: string | null,
-    name: string | null,
-    email: string | null,
-    isOnline: boolean | null,
-    createdAt: Date | null,
-    updatedAt: Date | null,
-    __v: number | null
+    _id: string ,
+    name: string ,
+    email: string ,
+    isOnline: boolean ,
+    createdAt: Date ,
+    updatedAt: Date ,
+    __v: number 
 }
 
 export interface MessageI {

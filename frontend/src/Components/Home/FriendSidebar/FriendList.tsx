@@ -1,16 +1,16 @@
+import type { FriendI } from "../../../interfaces/interfaces";
 import FriendBox from "./FriendBox";
 
-// bhai users ch type update krch ahe 
-const FriendList = ({users} : {users: any}) => {
-  
-     return (
+// bhai users ch type update krch ahe
+const FriendList = ( {friends } : {friends: FriendI[]} ) => {
+  console.log(friends);
+  return (
     <div className="flex flex-col gap-1 overflow-y-auto">
-      {users.map((user : any) => (
-        <FriendBox key={user.id} user={user} />
+      {friends.map((user) => (
+        <FriendBox key={user._id} user={user} />
       ))}
     </div>
   );
-  
-}
+};
 
-export default FriendList
+export default FriendList;

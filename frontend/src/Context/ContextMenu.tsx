@@ -10,7 +10,7 @@ interface MyContextType {
   setIsLogin: React.Dispatch<React.SetStateAction<boolean>>;
   user: UserI | null;
   setUser: React.Dispatch<React.SetStateAction<any>>;
-  friends: FriendI | null;
+  friends: FriendI[] 
   setFriends: React.Dispatch<React.SetStateAction<any>>;
 }
 
@@ -21,7 +21,7 @@ export const MyContext = createContext<MyContextType>(
 export const MyProvider = ({ children }: { children: React.ReactNode }) => {
   const [isLogin, setIsLogin] = useState<boolean>(false);
   const [user, setUser] = useState<UserI | null >(null);
-  const [friends, setFriends] = useState<FriendI | null >(null);
+  const [friends, setFriends] = useState<FriendI[]>([]);
 
 const checkIfUserIsLoggedIn = async () => {
       try {
