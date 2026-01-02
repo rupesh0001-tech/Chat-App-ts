@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { registerUser } from "../functions/AuthUser";
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -15,11 +16,12 @@ const Register = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Register Data:", formData);
-
-    // TODO: API call here
+    
+    const res = await  registerUser({ user: formData });
+    console.log(res)
   };
 
   return (

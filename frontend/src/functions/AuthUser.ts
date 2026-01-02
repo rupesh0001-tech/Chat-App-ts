@@ -26,3 +26,17 @@ export const loginUser = async ({ user }: { user: LoginUserI }) => {
     throw error.response?.data || error; // ✅ let caller handle error
   }
 };
+
+export const logoutUser = async () => {
+  try {
+    const res = await api.get(
+      "/api/users/logout",
+      { withCredentials: true }
+    );
+    return res.data; 
+  } catch (error: any) {
+    throw error.response?.data || error; 
+  }
+};
+
+
