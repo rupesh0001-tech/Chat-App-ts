@@ -1,5 +1,10 @@
+
 import { api } from "../api/api";
+
 import type { LoginUserI, RegisterUserI } from "../interfaces/interfaces";
+
+
+
 
 export const registerUser = async ({ user }: { user: RegisterUserI }) => {
   try {
