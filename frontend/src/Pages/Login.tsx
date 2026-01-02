@@ -1,6 +1,12 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { loginUser } from "../functions/AuthUser";
+import { useNavigate } from "react-router-dom";
+import { MyContext } from "../Context/ContextMenu";
 
 const Login = () => {
+
+  const navigate = useNavigate();
+  const { setUser, setIsLogin } = useContext(MyContext);
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -18,7 +24,10 @@ const Login = () => {
     e.preventDefault();
     console.log("Login Data:", formData);
 
-    // TODO: API call here
+    const data = loginUser({ user: formData });
+    setUser(data);
+    setIsLogin(true);
+    navigate("/");
   };
 
   return (
