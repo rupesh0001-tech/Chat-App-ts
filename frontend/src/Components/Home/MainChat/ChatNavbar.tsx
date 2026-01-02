@@ -1,4 +1,5 @@
 const ChatNavbar = () => {
+  
   return (
     <div className="h-14 flex items-center px-4 border-b bg-white">
       <div className="flex items-center gap-3">

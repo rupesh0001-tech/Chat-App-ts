@@ -3,7 +3,7 @@ import FriendBox from "./FriendBox";
 
 // bhai users ch type update krch ahe
 const FriendList = ( {friends } : {friends: FriendI[]} ) => {
-  console.log(friends);
+  
   return (
     <div className="flex flex-col gap-1 overflow-y-auto">
       {friends.map((user) => (
