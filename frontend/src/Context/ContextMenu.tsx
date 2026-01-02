@@ -13,8 +13,9 @@ interface MyContextType {
 }
 
 
-export const MyContext = createContext<MyContextType | null>(null);
-
+export const MyContext = createContext<MyContextType>(
+  {} as MyContextType
+);
 export const MyProvider = ({ children }: { children: React.ReactNode }) => {
   const [isLogin, setIsLogin] = useState<boolean>(false);
   const [user, setUser] = useState<UserI | null >(null);

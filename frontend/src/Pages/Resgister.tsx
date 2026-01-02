@@ -1,12 +1,17 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { registerUser } from "../functions/AuthUser";
+import { MyContext } from "../Context/ContextMenu";
+import {  useNavigate } from "react-router-dom";
 
 const Register = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     password: "",
   });
+
+  const { setUser, setIsLogin } = useContext(MyContext);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -20,8 +25,10 @@ const Register = () => {
     e.preventDefault();
     console.log("Register Data:", formData);
     
-    const res = await  registerUser({ user: formData });
-    console.log(res)
+    const data = await  registerUser({ user: formData });
+    setUser(data);
+    setIsLogin(true);
+    navigate("/");
   };
 
   return (
