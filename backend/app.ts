@@ -31,10 +31,36 @@ connectDB()
 
 // init socket io 
 const httpServer = http.createServer(app);
-const io = new Server(httpServer, {
+export const io = new Server(httpServer, {
     cors: {
-        origin: 'http://localhost:5173/',  
+        origin: 'http://localhost:5173',  
     }
+});
+
+// init socket io
+const onlineUsers = new Map<any, any>();
+
+
+
+ io.on('connection', (socket) => {
+    console.log('a user connected', socket.id);
+    
+    socket.on('join', (userId) => {
+        onlineUsers.set(userId, socket.id);
+        console.log('user connected', onlineUsers);
+
+    })
+    socket.on('disconnect', () => {
+        onlineUsers.delete(socket.id);
+        console.log('user disconnected');
+    });
+
+    
+    socket.on('send-message', ( { userId, message } ) => {
+        console.log('message received', message);
+        socket.to(onlineUsers.get(userId)).emit('receive-message', message);
+    });
+
 });
 
 // middlewares 
