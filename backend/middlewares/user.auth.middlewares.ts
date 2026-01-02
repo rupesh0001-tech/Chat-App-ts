@@ -25,6 +25,7 @@ export const isAuthenticated = (
       process.env.JWT_SECRET as string
     ) as JwtPayload;
 
+    console.log("decoded:", decoded);
     // attach user id to req
     req.userId = decoded._id;
 

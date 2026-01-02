@@ -14,6 +14,7 @@ export const getChat = async (req: Request, res: Response) => {
     }
 
     // get the other user
+    console.log(req.params.id);
     const otherUser = await User.findById(req.params.id);
 
     // handle if other user does not exist
@@ -38,7 +39,7 @@ export const getChat = async (req: Request, res: Response) => {
 
     } catch (error) {
         console.log(error);
-        res.status(500).json({ message: "Something went wrong" });
+        res.status(500).json({ message: "Something went wrong", error : error.message });
     }
 
     

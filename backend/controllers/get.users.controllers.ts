@@ -2,8 +2,9 @@ import User from "../models/user.model.ts";
 import type { Request, Response } from "express";
 
 export const getAllUsers = async (req: Request, res: Response) => {
-    try {        
-        const users = await User.find( {  _id : {  $ne :  req.userId } });
+    try {     
+        console.log(req.userId)   
+        const users = await User.find( {  _id : {  $ne : req.userId } });
         res.status(200).json({ users });
     } catch (error : any) {
         

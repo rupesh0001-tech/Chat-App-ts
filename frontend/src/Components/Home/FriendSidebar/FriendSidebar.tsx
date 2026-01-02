@@ -28,13 +28,13 @@ const FriendSidebar = () => {
 
  
 
-  const getfriends = async () => { const temp  =  await getFriends();
+  const getfriendsList = async () => { const temp  =  await getFriends();
     console.log(temp.users);
     setFriends(temp.users);
   }
 
   useEffect(() => {
-    getfriends()
+    getfriendsList()
   }, []);
 
   return (
