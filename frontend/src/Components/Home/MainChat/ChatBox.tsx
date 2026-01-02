@@ -17,7 +17,7 @@ const ChatBox = () => {
       </div>
 
       {/* Input */}
-      <MessageType />
+      <MessageType  />
     </div>
   );
 };
