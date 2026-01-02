@@ -12,6 +12,8 @@ interface MyContextType {
   setUser: React.Dispatch<React.SetStateAction<any>>;
   friends: FriendI[] 
   setFriends: React.Dispatch<React.SetStateAction<any>>;
+  currentUser: UserI | null;
+  setCurrentUser: React.Dispatch<React.SetStateAction<any>>
 }
 
 
@@ -22,6 +24,7 @@ export const MyProvider = ({ children }: { children: React.ReactNode }) => {
   const [isLogin, setIsLogin] = useState<boolean>(false);
   const [user, setUser] = useState<UserI | null >(null);
   const [friends, setFriends] = useState<FriendI[]>([]);
+  const [currentUser, setCurrentUser] = useState<UserI | null>(null);
 
 const checkIfUserIsLoggedIn = async () => {
       try {
@@ -43,7 +46,7 @@ const checkIfUserIsLoggedIn = async () => {
 
   return (
     <MyContext.Provider
-      value={{ isLogin, setIsLogin, user, setUser, friends, setFriends }}
+      value={{ isLogin, setIsLogin, user, setUser, friends, setFriends, currentUser, setCurrentUser }}
     >
       {children}
     </MyContext.Provider>

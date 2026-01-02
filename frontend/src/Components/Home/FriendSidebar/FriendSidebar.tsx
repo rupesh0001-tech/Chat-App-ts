@@ -2,7 +2,7 @@ import { useContext, useEffect } from "react";
 import FriendList from "./FriendList";
 import { getFriends } from "../../../functions/Friends";
 import { MyContext } from "../../../Context/ContextMenu";
-import type { FriendI } from "../../../interfaces/interfaces";
+
 
 const FriendSidebar = () => {
 
