@@ -1,30 +1,21 @@
-import { useEffect } from "react";
+import { useContext, useState } from "react";
 import MessageBtn from "./MessageBtn";
-import { getMessages } from "../../../functions/messages";
 
-const messages = [
-  { id: 1, text: "Hi", isMe: false },
-  { id: 2, text: "Hello 👋", isMe: true },
-  { id: 3, text: "How are you?", isMe: false },
-];
+import { MyContext } from "../../../Context/ContextMenu";
 
-const MessageBox = ({id} : any ) => {
-  console.log(id);
-  if (id) {
-    const fetchMessage = async () => {
-      const temp = await getMessages(id);
-      console.log(temp);
-    };
 
-    useEffect(() => {
-      fetchMessage();
-    });
-  }
+
+
+
+const MessageBox = () => {
+  const { currentUserMessages } = useContext(MyContext);
+  
 
   return (
     <div className="flex flex-col gap-3 px-4 py-4">
-      {messages.map((msg) => (
-        <MessageBtn key={msg.id} message={msg} />
+      
+      {currentUserMessages && currentUserMessages.map((msg : any ) => (
+        <MessageBtn key={msg._id} message={msg} />
       ))}
     </div>
   );

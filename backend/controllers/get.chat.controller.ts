@@ -37,7 +37,7 @@ export const getChat = async (req: Request, res: Response) => {
 
     res.status(200).json({ chat });
 
-    } catch (error) {
+    } catch (error : any ) {
         console.log(error);
         res.status(500).json({ message: "Something went wrong", error : error.message });
     }

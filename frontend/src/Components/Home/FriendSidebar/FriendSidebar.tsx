@@ -7,27 +7,7 @@ import { MyContext } from "../../../Context/ContextMenu";
 const FriendSidebar = () => {
 
   const { setFriends, friends  } = useContext(MyContext);
-  // const users = [
-  //   { id: 1, name: "1Monish" },
-  //   { id: 2, name: "! Roy..!!", role: "DEV" },
-  //   { id: 3, name: "Ayush" },
-  //   { id: 4, name: "Ak noor" },
-  //   { id: 5, name: "Sneha Shetty" },
-  //   { id: 6, name: "pratapAlok" },
-  //   { id: 7, name: "RAREST_BOY" },
-  //   { id: 8, name: "Aditi.." },
-  //   { id: 9, name: "Deepak" },
-  //   { id: 10, name: "Aditya" },
-  //   { id: 11, name: "Aayush" },
-  //   { id: 12, name: "Aayush" },
-  //   { id: 13, name: "Aayush" },
-  //   { id: 14, name: "Aayush" },
-  //   { id: 15, name: "Aayush" },
-  //   { id: 16, name: "Aayush" },
-  // ];
-
- 
-
+  
   const getfriendsList = async () => { const temp  =  await getFriends();
     console.log(temp.users);
     setFriends(temp.users);

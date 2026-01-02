@@ -7,7 +7,7 @@ const MessageBtn = ({ message }: any) => {
           : "self-start bg-gray-100 text-black"
       }`}
     >
-      {message.text}
+      {message.message}
     </div>
   );
 };

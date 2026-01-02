@@ -1,13 +1,22 @@
 import { useContext } from "react";
 import { MyContext } from "../../../Context/ContextMenu";
 import DefaultAvatar from "./DefaultAvatar"
+import { getMessages } from "../../../functions/messages";
 
 
 // bhai users ch type update krch ahe
 const FriendBox = ({user} : {user: any}) => {
-  const { setCurrentUser } = useContext(MyContext);
+  const { setCurrentUser, setCurrentUserMessages } = useContext(MyContext);
+
+    const fetchMessage = async (id : any) => {
+      
+      console.log(id);
+      let temp = await getMessages(id);
+      setCurrentUserMessages(temp.chat);
+    };
+    
   return (
-     <div onClick={() => {setCurrentUser(user)}} className="flex items-center gap-3 px-3 py-2 rounded-md hover:bg-gray-100 cursor-pointer transition">
+     <div onClick={async () => { await fetchMessage(user._id) }} className="flex items-center gap-3 px-3 py-2 rounded-md hover:bg-gray-100 cursor-pointer transition">
       
       {/* Avatar */}
       {user.profileImage ? (
