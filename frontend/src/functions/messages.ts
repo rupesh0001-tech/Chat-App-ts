@@ -13,7 +13,6 @@ export const getMessages = async (id : any) => {
 export const sendMessage = async (id : any, message : any) => {
     try {
         const res = await api.post(`/api/messages/${id}`, { message }, { withCredentials: true });
-        console.log( res.data.message )
         socket.emit('send-message', {message : res.data.message, userId : id});
         return res.data; 
     } catch (error: any) {

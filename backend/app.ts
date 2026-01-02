@@ -38,7 +38,7 @@ export const io = new Server(httpServer, {
 });
 
 // init socket io
-const onlineUsers = new Map<any, any>();
+export const onlineUsers = new Map<any, any>();
 
 
 
@@ -56,10 +56,10 @@ const onlineUsers = new Map<any, any>();
     });
 
     
-    socket.on('send-message', ( { userId, message } ) => {
-        console.log('message received', message);
-        socket.to(onlineUsers.get(userId)).emit('receive-message', message);
-    });
+    // socket.on('send-message', ( { userId, message } ) => {
+        
+    //     socket.emit('receive-message', message);
+    // });
 
 });
 

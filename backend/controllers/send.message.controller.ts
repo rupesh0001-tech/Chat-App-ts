@@ -1,6 +1,8 @@
+
 import type { Request, Response } from "express";
 import Message from "../models/message.model.ts";
 import User from "../models/user.model.ts";
+import { io, onlineUsers } from '../app.ts';
 
 export const sendMessage = async (req: Request, res: Response) => {
   try {
@@ -22,6 +24,12 @@ export const sendMessage = async (req: Request, res: Response) => {
       sender: senderUser._id,
       reciver: reciverUser._id,
     });
+
+     const receiverSocketId = onlineUsers.get(reciverUser._id.toString());
+
+  if (receiverSocketId) {
+    io.to(receiverSocketId).emit("receive-message", newMessage);
+  }
 
     res.status(201).json(newMessage);
   } catch (error) {

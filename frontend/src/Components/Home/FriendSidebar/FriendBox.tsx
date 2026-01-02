@@ -10,9 +10,8 @@ const FriendBox = ({user} : {user: any}) => {
 
     const fetchMessage = async (id : any) => {
       setCurrentUser(user);
-      console.log(id);
       let temp = await getMessages(id);
-
+      console.log(temp);
       setCurrentUserMessages(temp.chat);
     };
     
