@@ -1,5 +1,6 @@
 import { createContext } from "react";
 import { useState } from "react";
+import type { FriendI, UserI } from "../interfaces/interfaces";
 
 
 interface MyContextType {
@@ -15,9 +16,9 @@ interface MyContextType {
 export const MyContext = createContext<MyContextType | null>(null);
 
 export const MyProvider = ({ children }: { children: React.ReactNode }) => {
-  const [isLogin, setIsLogin] = useState(false);
-  const [user, setUser] = useState<any>(null);
-  const [friends, setFriends] = useState<any>(null);
+  const [isLogin, setIsLogin] = useState<boolean>(false);
+  const [user, setUser] = useState<UserI | null >(null);
+  const [friends, setFriends] = useState<FriendI | null >(null);
 
   return (
     <MyContext.Provider
